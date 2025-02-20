@@ -3,10 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-// Configuración del DbContext para usar SQLite
+// Configuración del DbContext para usar SQL Server
 builder.Services.AddDbContext<StoreContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // Usa SQL Server
 
 // Registrar servicios para controladores (esto habilita el uso de controladores en la aplicación)
 builder.Services.AddControllers();
