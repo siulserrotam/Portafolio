@@ -24,9 +24,9 @@ namespace API.Data.Migrations
                 });
         }
 
-        /// <inheritdoc />
+        ///<inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
-        {
+        { 
             migrationBuilder.DropTable(
                 name: "Products");
         }
