@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "API/1.0.0": {
         "dependencies": {
-          "Infraestucture": "1.0.0",
+          "Infraestructure": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.13",
           "Microsoft.EntityFrameworkCore": "9.0.2",
           "Microsoft.EntityFrameworkCore.Design": "9.0.2",
@@ -1286,6 +1286,10 @@
         }
       },
       "Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.2"
+        },
         "runtime": {
           "Core.dll": {
             "assemblyVersion": "1.0.0",
@@ -1293,14 +1297,14 @@
           }
         }
       },
-      "Infraestucture/1.0.0": {
+      "Infraestructure/1.0.0": {
         "dependencies": {
           "Core": "1.0.0",
           "Microsoft.EntityFrameworkCore": "9.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.2"
         },
         "runtime": {
-          "Infraestucture.dll": {
+          "Infraestructure.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1970,7 +1974,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Infraestucture/1.0.0": {
+    "Infraestructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
