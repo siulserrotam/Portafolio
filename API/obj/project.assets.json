@@ -5585,11 +5585,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\API.csproj",
+      "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\API.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\obj\\",
+      "outputPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5680,13 +5680,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\API.csproj": {}
+    "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\API.csproj": {
+    "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\API.csproj",
+        "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\API.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\obj\\",
+        "outputPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
