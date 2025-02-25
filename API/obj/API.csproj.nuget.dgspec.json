@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestucture\\Infraestucture.csproj": {
-                "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestucture\\Infraestucture.csproj"
+              "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestructure\\Infraestructure.csproj": {
+                "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestructure\\Infraestructure.csproj"
               }
             }
           }
@@ -141,6 +141,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -161,14 +177,14 @@
         }
       }
     },
-    "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestucture\\Infraestucture.csproj": {
+    "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestructure\\Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestucture\\Infraestucture.csproj",
-        "projectName": "Infraestucture",
-        "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestucture\\Infraestucture.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestructure\\Infraestructure.csproj",
+        "projectName": "Infraestructure",
+        "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestructure\\Infraestructure.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestucture\\obj\\",
+        "outputPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -1,14 +1,21 @@
-namespace API.Entities  // Define el espacio de nombres 'API.Entities', que es donde se agrupan las entidades del modelo
-{
-    // Definición de la clase Product, que representa un producto en el sistema
-    public class Product
-    {
-        // Propiedad que representa el identificador único del producto
-        // 'Id' será la clave primaria en la base de datos para la tabla 'Products'
-        public int Id { get; set; }
+using System.ComponentModel.DataAnnotations;
+using Core.Entities;
 
-        // Propiedad que representa el nombre del producto
-        // 'Name' será una columna de tipo cadena de texto en la base de datos para almacenar el nombre del producto
+namespace API.Entities
+{
+    public class Product : BaseEntity
+    {
         public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+        public string PictureUrl { get; set; }
+
+        // Relación con ProductType
+        public ProductType ProductType { get; set; }
+        public int ProductTypeId { get; set; }
+
+        // Relación con ProductBrand
+        public ProductBrand ProductBrand { get; set; }
+        public int ProductBrandId { get; set; }
     }
 }
