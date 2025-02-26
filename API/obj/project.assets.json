@@ -5585,11 +5585,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\API.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\API.csproj",
+      "projectPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\API.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\api\\obj\\",
+      "outputPath": "C:\\Users\\usuario\\Escritorio\\Space\\My-skinet\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
