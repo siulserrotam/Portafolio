@@ -1,11 +1,13 @@
+// Configuración y puesta en marcha de la aplicación web, con la configuración de DbContext, repositorios e inyección de dependencias
+
+// Usamos los espacios de nombres necesarios para configurar la aplicación
 using Microsoft.EntityFrameworkCore;
 using API.Data;  // Asegúrate de que StoreContext esté en este espacio de nombres
 using Core.Interfaces;  // Asegúrate de que IProductRepository esté aquí
 using Infrastructure.Data;  // Asegúrate de que ProductRepository esté aquí
-using Microsoft.Extensions.DependencyInjection;  // Para la inyección de dependencias
-using Microsoft.Extensions.Logging;  // Para el logger
-using System.Threading.Tasks;  // Para tareas asincrónicas
+using Infraestructure.Data;  // Para tareas asincrónicas
 
+// Crea y configura el builder para la aplicación web
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuración del DbContext para usar SQL Server
@@ -18,6 +20,10 @@ builder.Services.AddControllers();
 // Registra el repositorio de productos
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
+// Registra el repositorio genérico
+// Para registrar el repositorio genérico, se debe registrar el tipo de repositorio genérico y el tipo de entidad
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
 // Servicios de Swagger para la documentación
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -25,6 +31,7 @@ builder.Services.AddSwaggerGen();
 // Agregar el logger factory a los servicios (necesario para la siembra de datos)
 builder.Services.AddLogging();
 
+// Construir la aplicación
 var app = builder.Build();
 
 // Configuración del pipeline de solicitudes HTTP
@@ -40,7 +47,7 @@ app.UseHttpsRedirection();
 // Mapea las rutas de los controladores
 app.MapControllers();
 
-// Aplicar migraciones al inicio
+// Aplicar migraciones al inicio de la aplicación
 await ApplyMigrationsAsync(app);
 
 app.Run();
