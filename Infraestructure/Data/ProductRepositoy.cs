@@ -21,6 +21,11 @@ namespace Infrastructure.Data
             _context = context;
         }
 
+        public Task<Product> GetEntityWithSpecAsync(ISpecification<Product> spec)
+        {
+            throw new NotImplementedException();
+        }
+
         // Método para obtener todas las marcas de productos
         public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
         {

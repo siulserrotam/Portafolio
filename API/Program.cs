@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using API.Data;  // Asegúrate de que StoreContext esté en este espacio de nombres
 using Core.Interfaces;  // Asegúrate de que IProductRepository esté aquí
 using Infrastructure.Data;  // Asegúrate de que ProductRepository esté aquí
-using Infraestructure.Data;  // Para tareas asincrónicas
+using Infraestructure.Data;
+using My_skiNet.API.Helpers;  // Para tareas asincrónicas
 
 // Crea y configura el builder para la aplicación web
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,8 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 // Registra el repositorio genérico
 // Para registrar el repositorio genérico, se debe registrar el tipo de repositorio genérico y el tipo de entidad
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);  // Configura AutoMapper
 
 // Servicios de Swagger para la documentación
 builder.Services.AddEndpointsApiExplorer();
@@ -43,6 +46,11 @@ if (app.Environment.IsDevelopment())
 
 // Usar HTTPS
 app.UseHttpsRedirection();
+
+// Usar el enrutamiento
+app.UseRouting();
+
+app.UseStaticFiles();  // Usar archivos estáticos
 
 // Mapea las rutas de los controladores
 app.MapControllers();
