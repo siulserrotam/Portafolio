@@ -1,3 +1,4 @@
+using API.Controllers;
 using API.Dtos;
 using API.Entities;  // Importa el espacio de nombres donde están las entidades, como el modelo Product
 using AutoMapper;
@@ -8,12 +9,8 @@ using Microsoft.AspNetCore.Mvc;  // Importa clases necesarias para crear control
 
 namespace API.Controller
 {
-    // Se define un controlador llamado ProductsController que hereda de ControllerBase
-    // [ApiController] habilita ciertas configuraciones automáticas de la API, como la validación de modelos
-    [ApiController]
-    // Define la ruta base del controlador, donde el nombre del controlador se usará como parte de la URL
-    [Route("api/[controller]")]
-    public class ProductsController : ControllerBase
+
+    public class ProductsController : BaseApiController
     {
         private readonly IProductRepository _productRepo;
         private readonly IGenericRepository<ProductBrand> _productBrandRepo;

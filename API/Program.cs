@@ -6,7 +6,8 @@ using API.Data;  // Asegúrate de que StoreContext esté en este espacio de nomb
 using Core.Interfaces;  // Asegúrate de que IProductRepository esté aquí
 using Infrastructure.Data;  // Asegúrate de que ProductRepository esté aquí
 using Infraestructure.Data;
-using My_skiNet.API.Helpers;  // Para tareas asincrónicas
+using My_skiNet.API.Helpers;
+using API.Middleware;  // Para tareas asincrónicas
 
 // Crea y configura el builder para la aplicación web
 var builder = WebApplication.CreateBuilder(args);
@@ -37,12 +38,10 @@ builder.Services.AddLogging();
 // Construir la aplicación
 var app = builder.Build();
 
-// Configuración del pipeline de solicitudes HTTP
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Middleware para manejar excepciones
+app.UseMiddleware<ExceptionMiddleware>();
+
+app.UseExceptionHandler("/errors/{0}");  // Manejar excepciones
 
 // Usar HTTPS
 app.UseHttpsRedirection();
