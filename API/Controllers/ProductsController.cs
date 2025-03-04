@@ -1,6 +1,7 @@
 using API.Controllers;
 using API.Dtos;
 using API.Entities;  // Importa el espacio de nombres donde están las entidades, como el modelo Product
+using API.Errors;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -50,6 +51,8 @@ namespace API.Controller
 
         // Método para obtener un producto por su id
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ProductToReturnDto), 200)]
+        [ProducesResponseType(typeof(ApiResponse), 404)]
         public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(id);  // Creamos una especificación que use el id del producto
@@ -62,6 +65,11 @@ namespace API.Controller
                 return NotFound($"Product with ID {id} not found.");
             }
 
+            // Si no hay productos, se retorna un 404 NotFound
+            if (product == null) return NotFound(new ApiResponse(404));
+           
+            
+        
             // Se mapea el producto a un DTO y se devuelve
             return Ok(_mapper.Map<Product, ProductToReturnDto>(product));
         }
