@@ -27,6 +27,7 @@ public class WeatherForecastController : ControllerBase  // Define el controlado
     // Acción GET que maneja las solicitudes GET a la ruta "weatherforecast" (ya que [Route("[controller]") lo convierte en la ruta "/WeatherForecast").
     // Genera una lista de objetos WeatherForecast con un rango de 5 días de pronóstico.
     [HttpGet(Name = "GetWeatherForecast")]  // El atributo HttpGet indica que esta acción maneja solicitudes GET.
+    
     public IEnumerable<WeatherForecast> Get()
     {
         // Devuelve una lista de pronósticos de clima generados aleatoriamente con fechas y resúmenes.

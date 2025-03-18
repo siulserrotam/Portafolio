@@ -19,6 +19,9 @@ namespace Core.Interfaces
         // Devuelve una lista de productos de solo lectura, sin permitir modificaciones directas
         Task<IReadOnlyList<Product>> GetProductsAsync();
 
+        // Método asincrónico para obtener un producto con una especificación
+        Task <Product> GetEntityWithSpecAsync(ISpecification<Product> spec);
+
         // Método asincrónico para obtener todas las marcas de productos
         // Devuelve una lista de marcas de productos de solo lectura
         Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync();

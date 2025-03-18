@@ -13,6 +13,13 @@ namespace Core.Specifications
             AddInclude(x => x.ProductBrand); // Incluir marcas de productos
             AddInclude(x => x.ProductType); // Incluir tipos de productos
         }
+
+        public ProductsWithTypesAndBrandsSpecification(int id) 
+            : base(x => x.Id == id) // Filtro por Id
+         {    
+            AddInclude(x => x.ProductBrand); // Incluir marcas de productos
+            AddInclude(x => x.ProductType); // Incluir tipos de productos 
+         }
     }
 }
 
