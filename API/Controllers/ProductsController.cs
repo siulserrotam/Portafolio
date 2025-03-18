@@ -1,12 +1,8 @@
-using API.Data;  // Importa el espacio de nombres donde está el contexto de la base de datos (StoreContext)
 using API.Entities;  // Importa el espacio de nombres donde están las entidades, como el modelo Product
 using Core.Entities;
 using Core.Interfaces;
+using Core.Specifications;
 using Microsoft.AspNetCore.Mvc;  // Importa clases necesarias para crear controladores de la API en ASP.NET
-using Microsoft.EntityFrameworkCore;  // Importa clases necesarias para trabajar con Entity Framework (acceso a datos)
-using System.Collections.Generic; // Para usar List<T> que se utiliza para devolver colecciones de objetos
-using System.Linq; // Para usar métodos de LINQ, como ToList()
-
 
 namespace API.Controller
 {
@@ -18,22 +14,28 @@ namespace API.Controller
     public class ProductsController : ControllerBase
     {
 
-        // Declaración del campo privado para el repositorio
-        private readonly IProductRepository _repo;
+        private readonly IProductRepository _ProductRepo;
+        private readonly IGenericRepository<Product> _productRepo;
+        private readonly IGenericRepository<ProductBrand> _productBrandRepo;
+        private readonly IGenericRepository<ProductType> _productTypeRepo;
 
-        // Constructor que recibe el repositorio como parámetro
-        public ProductsController(IProductRepository repo)
+       public ProductsController(
+                IProductRepository productRepo, 
+                IGenericRepository<ProductBrand> productBrandRepo, 
+                IGenericRepository<ProductType> productTypeRepo)
         {
-            _repo = repo;   
+            _ProductRepo = productRepo;
+            _productBrandRepo = productBrandRepo;
+            _productTypeRepo = productTypeRepo;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
-            // Se obtiene la lista de productos desde la base de datos de manera asincrónica
-            var products = await _repo.GetProductsAsync(); 
+            var spec = new ProductsWithTypesAndBrandsSpecification();
 
-            // Se devuelve la lista de productos con una respuesta HTTP 200 OK
+            var products = await _ProductRepo.ListAsync(spec);
+            
             return Ok(products);
         }
 
@@ -41,18 +43,19 @@ namespace API.Controller
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
            
-            return await _repo.GetProductByIdAsync(id); 
+            return await _ProductRepo.GetProductByIdAsync(id); 
         }
         [HttpGet("brands")]
         public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
         {
-            return Ok(await _repo.GetProducBrandstsAsync());
+            return Ok(await _productBrandRepo.ListAllAsync());
         }
 
             [HttpGet("types")]
         public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
         {
-            return Ok(await _repo.GetProducBrandstsAsync());
+            return Ok(await _productTypeRepo.ListAllAsync());
         }
     }
+
 }
